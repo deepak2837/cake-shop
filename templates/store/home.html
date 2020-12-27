@@ -1,0 +1,299 @@
+{% extends "base.html" %} {% load static %}{% block content %}
+<head>
+<style>
+.img-wrapper {
+            display: grid;
+            height: 100vh;
+
+        }
+
+        .img-wrapper div {
+            grid-column: 1;
+            grid-row: 1;
+            background-position: center;
+            background-repeat: no-repeat;
+            transition: opacity 0.05s;
+        }
+
+        .divspl {
+            padding: 20px 100px;
+            display: grid;
+            grid-template-columns: 400px 400px 400px;
+            grid-template-rows: 450px 450px;
+            grid-gap: 60px;
+            color: #444;
+            align-items: center;
+
+        }
+
+        .divspl div {
+            overflow: hidden;
+            max-height: 300px;
+            background-color: rgb(255, 253, 253);
+            color: rgb(0, 0, 0);
+            border-radius: 10px;
+            padding: 20px;
+            transition: height 1s;
+            -webkit-transition: height 1s;
+
+        }
+
+        .div {
+            overflow: hidden;
+            max-height: 300px;
+            background-color: rgb(255, 253, 253);
+            color: rgb(0, 0, 0);
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        .divspl div:hover {
+            max-height: 900px;
+        }
+
+        img {
+            max-width: 100%;
+            max-height: 500px;
+        }
+
+       
+
+        .carousel-cell {
+            width: "10%";
+            height: "600%";
+            margin-right: 50px;
+            color: white;
+            float: center;
+        }
+
+        /* cell number */
+        .carousel-cell::before {
+            display: block;
+        }
+        .next{width:50%;
+        height:50%;}
+
+        @media only screen and (max-width: 400px) {
+ .divspl {
+            
+            grid-template-columns: 350px;
+            grid-template-rows: 450px;
+         
+
+        }
+         .img-wrapper {
+            display: grid;
+            height: 500px;
+            width:400px;
+
+        }
+       
+
+
+
+}
+    </style>
+    <script>
+
+        const checkpoint = 200;
+        window.addEventListener("scroll", () => {
+            currentScroll = window.pageYOffset;
+            if (currentScroll <= checkpoint) {
+                opacity = 1 - currentScroll / checkpoint;
+            } else {
+                opacity = 0;
+            }
+          
+            document.querySelector(".front").style.opacity = opacity;
+            
+        });
+        
+
+    </script>
+</head>
+
+<body bgcolor="black">
+<div class="img-wrapper">
+        <div class="picc" style="background-image: url(../../static/images/cake1.png);"></div>
+        <div class="front" style="background-image: url(../../static/images/main.jpeg);"></div>
+  
+        
+    </div>
+    <div>
+        <h1
+            style="color:rgb(255, 255, 255); text-align: center; font-style: italic; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
+            Our Specialities</h1><br>
+    </div>
+    <div class="divspl">
+
+        <div class="div 1"><img src="../../static/images/IMG20200923141501.jpg"><br>
+            <p>nutella flavour<br>Rs 450<br>
+                costumization is available</p>
+        </div>
+        <div class="div 2"><img src="../../static/images/IMG20200916181724.jpg"><br>
+            <p>Blueberry<br>Rs 450<br>
+                costumization is available</p>
+        </div>
+        <div class="div 3"><img src="../../static/images/IMG20200917161213.jpg"><br>
+            <p>Mixfruit<br>Rs 450<br>
+                costumization is available</p>
+        </div>
+        <div class="div 4"><img src="../../static/images/IMG20200919132016.jpg"><br>
+            <p>Chocolate<br>Rs 450<br>
+                costumization is available</p>
+        </div>
+        <div class="div 5"><img src="../../static/images/IMG20200924183520.jpg"><br>
+            <p>Chocochip<br>Rs 450<br>
+                costumization is available</p>
+        </div>
+        <div class="div 6"><img src="../../static/images/IMG20200923141324_1.jpg"><br>
+            <p>nutella flavour<br>Rs 450<br>
+                costumization is available</p>
+        </div>
+
+    </div>
+
+    
+
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+    <script src="https://unpkg.com/flickity@2.2.1/dist/flickity.pkgd.min.js"></script>   
+</body>
+{% comment %} 
+<div
+  id="carouselExampleIndicators"
+  class="carousel slide my-4"
+  data-ride="carousel"
+>
+  <ol class="carousel-indicators">
+    <li
+      data-target="#carouselExampleIndicators"
+      data-slide-to="0"
+      class="active"
+    ></li>
+    <li
+      data-target="#carouselExampleIndicators"
+      data-slide-to="1"
+      class=""
+    ></li>
+    <li
+      data-target="#carouselExampleIndicators"
+      data-slide-to="2"
+      class=""
+    ></li>
+  </ol>
+  <div class="carousel-inner" role="listbox">
+    <div class="carousel-item active">
+      <img
+        class="d-block img-fluid"
+        src="{% static 'images/cakeshop_1_banner.jpg' %}"
+        alt="First slide"
+      />
+    </div>
+    <div class="carousel-item">
+      <img
+        class="d-block img-fluid"
+        src="{% static 'images/cakeshop_2_banner.jpg' %}"
+        alt="Second slide"
+      />
+    </div>
+    <div class="carousel-item">
+      <img
+        class="d-block img-fluid"
+        src="{% static 'images/cakeshop_3_banner.jpg' %}"
+        alt="Third slide"
+      />
+    </div>
+  </div>
+  <a
+    class="carousel-control-prev"
+    href="#carouselExampleIndicators"
+    role="button"
+    data-slide="prev"
+  >
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a
+    class="carousel-control-next"
+    href="#carouselExampleIndicators"
+    role="button"
+    data-slide="next"
+  >
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+<div class="row">
+  {% for product in products %}
+  <div class="col-lg-4 col-md-6 mb-4">
+    <div class="card h-100">
+      <a href="{% url 'store-detail' product.id  %}"
+        ><img class="card-img-top" src="{{ product.image.url }}" alt=""
+      /></a>
+      <div class="card-body">
+        <h4 class="card-title">
+          <a href="{% url 'store-detail' product.id %}">{{ product.name }}</a>
+        </h4>
+        <div class="row-lg-2">
+          <h5>&#x20b9; {{ product.price }}</h5>
+          {% if product.egg %}
+          <p class="card-text">
+            <img
+              class="icon-egg"
+              src="{% static 'images/non-veg.jpg' %}"
+              alt=""
+            />
+            Contains Egg
+          </p>
+          {% else %}
+          <p class="card-text">
+            <img class="icon-egg" src="{% static 'images/veg.jpg' %}" alt="" />
+            100%Eggless
+          </p>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+<br>
+<!-- Testimonial Section -->
+<div class="container testi-section">
+  <input type="radio" name="nav" id="first" checked/>
+  <input type="radio" name="nav" id="second" />
+  <input type="radio" name="nav" id="third" />
+  
+  <label for="first" class="first"></label>
+<label for="second"  class="second"></label>
+<label for="third" class="third"></label>
+ 
+  <div class="one slide">
+    <blockquote>
+      <span class="leftq quotes">&ldquo;</span> He promptly completed the task at hand and communicates really well till the project reaches the finishing line. I was pleased with his creative design and will definitely be hiring him again. <span class="rightq quotes">&bdquo; </span>
+    </blockquote>
+    <h2>Steve Kruger</h2>
+    <h6>Eater</h6>
+  </div>
+  
+  <div class="two slide">
+    <blockquote>
+      <span class="leftq quotes">&ldquo;</span> He promptly completed the task at hand and communicates really well till the project reaches the finishing line. I recommend him to anyone who wants their work done professionally. The project ... <a href="#"> read more</a><span class="rightq quotes">&bdquo; </span>
+    </blockquote>
+    <h2>John Doe</h2>
+    <h6>Developer Relations at Woof Studios</h6>
+  </div>
+  
+  <div class="three slide">
+    <blockquote>
+      <span class="quotes leftq"> &ldquo;</span> He promptly completed the task at hand and communicates really well till the project reaches the finishing line. I was pleased with his creative design and will definitely be hiring him again. <span class="rightq quotes">&bdquo; </span>
+    </blockquote>
+    <h2>Steve Stevenson</h2>
+    <h6>CEO Woof Web Design Studios</h6><br><br>
+  </div>
+  
+  
+</div>
+ {% endcomment %}
+
+{% endblock content %}
