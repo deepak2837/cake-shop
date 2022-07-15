@@ -1,1 +1,1 @@
-web: gunicorn finalcakery.wsgi --log-file -
+web: gunicorn cakeshop.wsgi --log-file -
