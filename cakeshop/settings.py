@@ -25,7 +25,7 @@ SECRET_KEY = '-+qalm8!jm6ubni_^l^mml0jk=7*w)@l_32xooe4ejy(2pax76'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*', '127.0.0.1', 'cakery-webapp.herokuapp.com']
 
 
 # Application definition
