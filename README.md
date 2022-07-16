@@ -4,7 +4,7 @@
 A sample Cake Shop Website built Django(Multi-Page Application)
 
 ### Live version of this project is available here 
-### cakery-webapp.herokuapp.com
+### http://cakery-webapp.herokuapp.com
 
 ## APP/Code Features 
 - Only Admin can perform Create/Edit/Delete cakes & manage Orders.
