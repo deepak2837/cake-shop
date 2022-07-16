@@ -12,7 +12,6 @@ A sample Cake Shop Website built Django(Multi-Page Application)
 - Managing Cart System
 - Login through either `Username` or `Email`.
 - Responsive UI
-- Repository Pattern 
 - Can customize ur cakes 
 
 ## Framework / Library 
